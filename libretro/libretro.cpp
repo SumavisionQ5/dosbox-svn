@@ -496,7 +496,8 @@ bool update_dosbox_variable(bool reinit, std::string section_string, std::string
     Section_prop *secprop = static_cast <Section_prop*>(section);
     if (secprop)
     {
-        section->ExecuteDestroy(false);
+        if (reinit)
+            section->ExecuteDestroy(false);
         std::string inputline = var_string + "=" + val_string;
         ret = section->HandleInputline(inputline.c_str());
         if (reinit)
