@@ -888,6 +888,7 @@ public:
 		     << dec << (Bitu)myGUS.dma1 << "," << (Bitu)myGUS.dma2 << ","
 		     << (Bitu)myGUS.irq1 << "," << (Bitu)myGUS.irq2 << ends;
 		// Create autoexec.bat lines
+
 		autoexecline[0].Install(temp.str());
 		autoexecline[1].Install(std::string("SET ULTRADIR=") + section->Get_string("ultradir"));
 	}
