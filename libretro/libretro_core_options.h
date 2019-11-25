@@ -191,6 +191,7 @@ struct retro_core_option_definition option_defs_us[] = {
    },
 #if defined(C_DYNREC) || defined(C_DYNAMIC_X86)
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_core",
       "System: CPU core",
 #if defined(C_DYNREC)
@@ -213,6 +214,7 @@ struct retro_core_option_definition option_defs_us[] = {
    },
 #else
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_core",
       "System: CPU core",
       "CPU core used for emulation. Theare are no dynamic cores available on this platform.",
@@ -225,6 +227,7 @@ struct retro_core_option_definition option_defs_us[] = {
    },
 #endif
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_type",
       "System: CPU type",
       "Emulated CPU type. Auto is the fastest choice.",
@@ -241,6 +244,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "auto"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_cycles_mode",
       "System: CPU cycles mode",
       "Method to determine the amount of CPU cycles that DOSBox tries to emulate per milisecond. Use auto unless you "
@@ -254,6 +258,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "auto"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_cycles_multiplier",
       "System: Coarse CPU cycles multiplier",
       "Multiplier for coarse CPU cycles tuning.",
@@ -267,6 +272,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "1000"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_cycles",
       "System: Coarse CPU cycles value",
       "Value for coarse CPU cycles tuning.",
@@ -286,6 +292,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "1"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_cycles_multiplier_fine",
       "System: Fine CPU cycles multiplier",
       "Multiplier for fine CPU cycles tuning.",
@@ -300,6 +307,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "100"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_cycles_fine",
       "System: Fine CPU cycles value",
       "Value for fine CPU cycles tuning.",
@@ -319,6 +327,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "0"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_cpu_cycles_limit",
       "System: Max CPU cycles limit",
       "Limit the maximum amount of CPU cycles used.",
@@ -339,6 +348,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "100"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_aspect_correction",
       "Video: Aspect ratio correction.",
       "When enabled, the core's aspect ratio is set to what a CRT monitor would display. This is "
@@ -353,6 +363,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "true"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_scaler",
       "Video: Scaler",
       "Scaler used to scale or improve image quality.",
@@ -380,6 +391,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "none"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_joystick_timed",
       "Input: Enable joystick timed intervals",
       "Enable timed intervals for joystick axes. Experiment with this option if your joystick drifts.",
@@ -432,6 +444,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "1.00"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_type",
       "Sound: SoundBlaster type (restart)",
       "Type of emulated SoundBlaster card.",
@@ -448,6 +461,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "sb16"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_base",
       "Sound: SoundBlaster Base Address (restart)",
       "The I/O address for the emulated SoundBlaster card.",
@@ -465,6 +479,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "220"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_irq",
       "Sound: SoundBlaster IRQ Number (restart)",
       "The IRQ number for the emulated SoundBlaster card.",
@@ -481,6 +496,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "7"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_dma",
       "Sound: SoundBlaster DMA Number (restart)",
       "The DMA number for the emulated SoundBlaster card.",
@@ -496,6 +512,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "1"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_hdma",
       "Sound: SoundBlaster High DMA Number (restart)",
       "The High DMA number for the emulated SoundBlaster card.",
@@ -511,6 +528,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "7"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_opl_mode",
       "Sound: SoundBlaster OPL mode (restart)",
       "The SoundBlaster emulated OPL mode. All modes are Adlib compatible except cms.",
@@ -527,6 +545,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "auto"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_sblaster_opl_emu",
       "Sound: SoundBlaster OPL provider (restart)",
       "Provider for the OPL emulation. Compat might provide the best quality.",
@@ -540,6 +559,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "default"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_gus",
       "Sound: Gravis Ultrasound support (restart)",
       "Enables Gravis Ultrasound emulation. Thee ULTRADIR directory is not configurable. It is "
@@ -552,6 +572,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "false"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_gusrate",
       "Sound: Ultrasound sample rate (restart)",
       "Gravis Ultrasound emulation sample rate.",
@@ -569,6 +590,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "44100"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_gusbase",
       "Sound: Ultrasound IO address (restart)",
       "The IO base address for the emulated Gravis Ultrasound card.",
@@ -586,6 +608,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "240"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_gusirq",
       "Sound: Ultrasound IRQ (restart)",
       "The IRQ number for the emulated Gravis Ultrasound card.",
@@ -602,6 +625,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "5"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_gusdma",
       "Sound: Ultrasound DMA (restart)",
       "The DMA channel for the emulated Gravis Ultrasound card.",
@@ -617,6 +641,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "3"
    },
    {
+      /* doesn't like executeinit, can't be toggled on the fly */
       "dosbox_svn_midi",
       "Sound: Enable libretro MIDI passthrough",
       "Enable libretro MIDI passthrough.",
@@ -628,6 +653,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "false"
    },
    {
+      /* requires executeinit, can be toggled on the fly */
       "dosbox_svn_pcspeaker",
       "Sound: Enable PC speaker",
       "Enable PC speaker emulation.",
@@ -639,6 +665,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "false"
    },
    {
+
       "dosbox_svn_tandy",
       "Sound: Enable Tandy Sound System",
       "Enable Tandy Sound System Emulation. Auto only works if machine is set to tandy.",
@@ -662,6 +689,7 @@ struct retro_core_option_definition option_defs_us[] = {
       "off"
    },
    {
+      /* requires executeinit, can't be toggled on the fly */
       "dosbox_svn_ipx",
       "Network: Enable IPX",
       "Enable IPX over UDP tunneling.",

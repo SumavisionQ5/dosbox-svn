@@ -967,7 +967,7 @@ void check_variables()
     var.key = "dosbox_svn_cpu_core";
     var.value = NULL;
     if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-        update_dosbox_variable(false, "cpu", "core", var.value);
+        update_dosbox_variable(true, "cpu", "core", var.value);
 
     var.key = "dosbox_svn_aspect_correction";
     var.value = NULL;
@@ -1006,8 +1006,8 @@ void check_variables()
 
     var.key = "dosbox_svn_pcspeaker";
     var.value = NULL;
-    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value && !dosbox_initialiazed)
-        update_dosbox_variable(false, "speaker", "pcspeaker", var.value);
+    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value && dosbox_initialiazed)
+        update_dosbox_variable(true, "speaker", "pcspeaker", var.value);
 
     var.key = "dosbox_svn_midi";
     var.value = NULL;
@@ -1023,14 +1023,14 @@ void check_variables()
 
     var.key = "dosbox_svn_tandy";
     var.value = NULL;
-    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value && !dosbox_initialiazed)
-        update_dosbox_variable(false, "speaker", "tandy", var.value);
+    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value && dosbox_initialiazed)
+        update_dosbox_variable(true, "speaker", "tandy", var.value);
 
     var.key = "dosbox_svn_disney";
     var.value = NULL;
-    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value && !dosbox_initialiazed)
+    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value && dosbox_initialiazed)
     {
-        update_dosbox_variable(false, "speaker", "disney", var.value);
+        update_dosbox_variable(true, "speaker", "disney", var.value);
         if (!strcmp(var.value,"on"))
             disney_init = true;
         else
