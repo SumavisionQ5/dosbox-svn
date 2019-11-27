@@ -92,7 +92,6 @@ cothread_t emuThread;
 
 bool autofire;
 bool dosbox_initialiazed = false;
-bool midi_enable = false;
 
 unsigned deadzone;
 float mouse_speed_factor_x = 1.0;
@@ -131,7 +130,6 @@ retro_input_poll_t poll_cb;
 retro_input_state_t input_cb;
 retro_environment_t environ_cb;
 retro_log_printf_t log_cb;
-extern struct retro_midi_interface *retro_midi_interface;
 
 /* DOSBox state */
 static std::string loadPath;
@@ -152,7 +150,9 @@ static float current_aspect_ratio = 0;
 /* audio variables */
 static uint8_t audioData[829 * 4]; // 49716hz max
 static uint32_t samplesPerFrame = 735;
-static struct retro_midi_interface midi_interface;
+struct retro_midi_interface retro_midi_interface;
+bool use_retro_midi = false;
+bool have_retro_midi = false;
 bool disney_init;
 
 /* callbacks */
@@ -1036,15 +1036,25 @@ void check_variables()
             update_cycles = false;
         }
 
+        var.key = "dosbox_svn_midi_device";
+        var.value = NULL;
+        if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+        {
+            use_retro_midi = strcmp(var.value, "libretro") == 0;
+            update_dosbox_variable(false, "midi", "mididevice", use_retro_midi ? "none" : var.value);
+            if (use_retro_midi && !have_retro_midi)
+            {
+                have_retro_midi = environ_cb(RETRO_ENVIRONMENT_GET_MIDI_INTERFACE, &retro_midi_interface);
+                if (log_cb)
+                    log_cb(RETRO_LOG_INFO, "[dosbox] libretro MIDI interface %s.\n",
+                        have_retro_midi ? "initialized" : "unavailable");
+            }
+        }
+
         var.key = "dosbox_svn_pcspeaker";
         var.value = NULL;
         if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
             update_dosbox_variable(false, "speaker", "pcspeaker", var.value);
-
-        var.key = "dosbox_svn_midi";
-        var.value = NULL;
-        if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-            midi_enable = strcmp(var.value, "true") == 0;
 
     #if defined(C_IPX)
         var.key = "dosbox_svn_ipx";
@@ -1161,18 +1171,6 @@ static void start_dosbox(void)
 
     dosbox_initialiazed = true;
     check_variables();
-
-    if (midi_enable)
-    {
-        if(environ_cb(RETRO_ENVIRONMENT_GET_MIDI_INTERFACE, &midi_interface))
-            retro_midi_interface = &midi_interface;
-        else
-            retro_midi_interface = NULL;
-
-        if (log_cb)
-            log_cb(RETRO_LOG_INFO, "[dosbox] MIDI interface %s.\n",
-                retro_midi_interface ? "initialized" : "unavailable\n");
-    }
 
     if (core_timing == CORE_TIMING_SYNCED)
         /* In synced mode, frontend takes care of timing, not dosbox */
@@ -1559,8 +1557,8 @@ void retro_run (void)
         if (log_cb)
             log_cb(RETRO_LOG_WARN, "[dosbox] run called without emulator thread\n");
     }
-    if (midi_enable && retro_midi_interface && retro_midi_interface->output_enabled())
-        retro_midi_interface->flush();
+    if (use_retro_midi && have_retro_midi && retro_midi_interface.output_enabled())
+        retro_midi_interface.flush();
     samplesPerFrame = MIXER_RETRO_GetFrequency() / currentFPS;
 }
 

@@ -6,7 +6,9 @@ UNAME=$(shell uname -s)
 UNAMEM=$(shell uname -m)
 
 platform ?= unix
-ifneq ($(findstring MINGW,$(UNAME)),)
+ifeq ($(UNAME),Linux)
+	platform = linux
+else ifneq ($(findstring MINGW,$(UNAME)),)
 	platform = win
 else ifneq ($(findstring Darwin,$(UNAME)),)
 	platform = osx
@@ -226,6 +228,9 @@ else ifeq ($(platform), win)
 	endif
 	COMMONFLAGS += -D__USE_W32_SOCKETS -Werror=return-type
 else
+	ifeq ($(platform), linux)
+		COMMONFLAGS += -DHAVE_ALSA
+	endif
 	COMMONFLAGS += -DC_HAVE_MPROTECT="1" -DLIBCO_MPROTECT=1
 	TARGET := $(TARGET_NAME)_libretro.so
 	LDFLAGS += -shared -Wl,--version-script=link.T

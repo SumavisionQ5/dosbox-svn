@@ -617,15 +617,21 @@ struct retro_core_option_definition option_defs_us[] = {
       "3"
    },
    {
-      "dosbox_svn_midi",
-      "Sound: Enable libretro MIDI passthrough",
-      "Enable libretro MIDI passthrough.",
+      "dosbox_svn_midi_device",
+      "Sound: MIDI device",
+      "Device that will receive the MIDI data from MPU-401.",
       {
-         { "false", NULL },
-         { "true", NULL },
+         { "none", NULL },
+#ifdef __WIN32__
+         { "win32", NULL },
+#endif
+#ifdef HAVE_ALSA
+         { "alsa", NULL },
+#endif
+         { "libretro", NULL },
          { NULL, NULL },
       },
-      "false"
+      "none"
    },
    {
       "dosbox_svn_pcspeaker",

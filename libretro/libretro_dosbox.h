@@ -27,6 +27,9 @@ extern float dosbox_aspect_ratio;
 extern Bit8u dosbox_framebuffers[2][1024 * 768 * 4];
 extern Bit8u *dosbox_frontbuffer;
 extern bool dosbox_frontbuffer_uploaded;
+extern struct retro_midi_interface retro_midi_interface;
+extern bool use_retro_midi;
+extern bool have_retro_midi;
 
 bool update_dosbox_variable(bool autoexec, std::string section_string, std::string var_string, std::string val_string);
 
