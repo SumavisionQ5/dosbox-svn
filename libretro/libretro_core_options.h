@@ -69,8 +69,8 @@ extern "C" {
 struct retro_core_option_definition option_defs_us[] = {
    {
       "dosbox_svn_use_options",
-      "Core: Enable options",
-      "Enable options. Disable in-case of using pre-generated configuration files (restart).",
+      "核心:启用选项",
+      "启用选项。 禁用使用预生成的配置文件的情况(需重启)。",
       {
          { "true", NULL },
          { "false", NULL },
@@ -80,8 +80,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_adv_options",
-      "Core: Enable advanced options",
-      "Enable advanced options that are not required for normal operation.",
+      "核心:启用高级选项",
+      "启用正常操作不需要的高级选项。",
       {
          { "true", NULL },
          { "false", NULL },
@@ -91,9 +91,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_save_overlay",
-      "Core: Enable overlay file system (restart)",
-      "Enable overlay file system to redirect filesystem changes to the save directory. "
-      "Disable if you have problems starting some games.",
+      "核心:启用覆盖文件系统(重新启动)",
+      "启用覆盖文件系统 将文件系统重定向到保存目录。 如果启动某些游戏时遇到问题, 请禁用。",
       {
          { "true", NULL },
          { "false", NULL },
@@ -103,12 +102,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_core_timing",
-      "Core: Timing mode",
-      "Internal mode works on an internal scheduler. DOSBox will render frames at it's own pace which "
-      "may result in additional input lag and judder. Cycles modes \"auto\" and \"max\" should work as intended.\n"
-      "There is a fixed 60 fps mode and a variable framerate mode.\n\n"
-      "External mode works based on the frontend's scheduler. It should offer lower input lag but requires a fixed "
-      "cycle rate. It should offer smoother scrolling, and no judder.",
+      "核心:计时模式",
+      "内部模式以内部调度程序运行。 DOSBox将按照自己的速度渲染帧, 这可能会导致额外的输入延迟和抖动。 周期模式'auto'和'max'应能正常工作。 有固定的60FPS模式和可变帧率模式。 外部模式基于前端的调度程序工作。 它提供较低的输入延迟, 但需要固定的周期速率。 它能提供更流畅的滚动, 且无抖动。",
       {
          { "internal_fixed", "internal (fixed 60fps)" },
          { "internal_variable", "internal (variable fps)" },
@@ -119,8 +114,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_machine_type",
-      "System: Emulated machine (restart)",
-      "The type of machine that DOSBox will try to emulate.",
+      "系统:模拟机型(需重启)",
+      "DOSBox将尝试模拟的计算机类型。",
       {
          { "hercules", "Hercules (Hercules Graphics Card)" },
          { "cga", "CGA (Color Graphics Adapter)" },
@@ -140,8 +135,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_machine_hercules_palette",
-      "System: Hercules color mode",
-      "The color scheme for hercules emulation.",
+      "系统:Hercules色彩模式",
+      "Hercules模拟的配色方案。",
       {
          { "0", "black & white" },
          { "1", "black & amber" },
@@ -152,8 +147,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_machine_cga_composite_mode",
-      "System: CGA composite mode toggle",
-      "Enable or disable CGA composite mode.",
+      "系统:CGA复合模式切换",
+      "启用或禁用CGA复合模式。",
       {
          { "0", "auto" },
          { "1", "true" },
@@ -164,8 +159,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_machine_cga_model",
-      "System: CGA model",
-      "They type of CGA model in the emulated system.",
+      "系统：CGA型号",
+      "模拟系统中CGA型号的类型。",
       {
          { "0", "late" },
          { "1", "early" },
@@ -175,8 +170,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_memory_size",
-      "System: Memory size (restart)",
-      "The amount of memory that the emulated machine has.",
+      "系统:内存大小(需重启)",
+      "调整模拟的机器所具有的内存大小。",
       {
          { "4", NULL },
          { "8", NULL },
@@ -192,9 +187,9 @@ struct retro_core_option_definition option_defs_us[] = {
 #if defined(C_DYNREC) || defined(C_DYNAMIC_X86)
    {
       "dosbox_svn_cpu_core",
-      "System: CPU core",
+      "系统: CPU核心",
 #if defined(C_DYNREC)
-      "CPU core used for emulation. Auto will switch to dynamic if appropiate. Dynamic core DYNREC available.",
+      "调整用于模拟的CPU核心。 如果可能将自动将切换为动态。 动态核心DYNREC可用。",
 #else
       "CPU core used for emulation. Auto will switch to dynamic if appropiate. Dynamic core DYNAMIC_X86 available.",
 #endif
@@ -214,8 +209,8 @@ struct retro_core_option_definition option_defs_us[] = {
 #else
    {
       "dosbox_svn_cpu_core",
-      "System: CPU core",
-      "CPU core used for emulation. Theare are no dynamic cores available on this platform.",
+      "系统: CPU核心",
+      "调整用于模拟的CPU核心。 本平台无动态核心可用。",
       {
          { "normal", "normal (interpreter)" },
          { "simple", "simple (interpreter optimized for old real-mode games)" },
@@ -226,8 +221,8 @@ struct retro_core_option_definition option_defs_us[] = {
 #endif
    {
       "dosbox_svn_cpu_type",
-      "System: CPU type",
-      "Emulated CPU type. Auto is the fastest choice.",
+      "系统: CPU类型",
+      "调整模拟的CPU类型。自动是最快的选择。",
       {
          { "auto", "auto (fastest choice)" },
          { "386", "386" },
@@ -242,9 +237,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_cpu_cycles_mode",
-      "System: CPU cycles mode",
-      "Method to determine the amount of CPU cycles that DOSBox tries to emulate per milisecond. Use auto unless you "
-      "have performance problems. A value that is too high for your system may cause slowdown.",
+      "系统: CPU周期模式",
+      "确定DOSBox每毫秒模拟的CPU周期数量。 除非有性能问题, 否则请使用自动。 该值过高可能会导致拖慢。",
       {
          { "auto", "auto (real-mode games use fixed cycles 3000, protected-mode games use max)" },
          { "fixed", "fixed (set emulated CPU speed to a amount of cycles" },
@@ -255,8 +249,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_cpu_cycles_multiplier",
-      "System: Coarse CPU cycles multiplier",
-      "Multiplier for coarse CPU cycles tuning.",
+      "系统: 粗调CPU周期倍数",
+      "粗略调整CPU周期的倍数。",
       {
          { "100", NULL },
          { "1000", NULL },
@@ -268,8 +262,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_cpu_cycles",
-      "System: Coarse CPU cycles value",
-      "Value for coarse CPU cycles tuning.",
+      "系统: 粗调CPU周期值",
+      "粗略调整CPU周期的值。",
       {
          { "0", NULL },
          { "1", NULL },
@@ -287,8 +281,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_cpu_cycles_multiplier_fine",
-      "System: Fine CPU cycles multiplier",
-      "Multiplier for fine CPU cycles tuning.",
+      "系统:精调CPU周期倍数",
+      "精细调整CPU周期的倍数。",
       {
          { "1", NULL },
          { "10", NULL },
@@ -301,8 +295,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_cpu_cycles_fine",
-      "System: Fine CPU cycles value",
-      "Value for fine CPU cycles tuning.",
+      "系统: 精调CPU周期值",
+      "精细调整CPU周期的值。",
       {
          { "0", NULL },
          { "1", NULL },
@@ -320,8 +314,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_cpu_cycles_limit",
-      "System: Max CPU cycles limit",
-      "Limit the maximum amount of CPU cycles used.",
+      "系统:限制最大CPU周期",
+      "限制使用的最大CPU周期数。",
       {
          { "10", "10%" },
          { "20", "20%" },
@@ -340,11 +334,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_aspect_correction",
-      "Video: Aspect ratio correction.",
-      "When enabled, the core's aspect ratio is set to what a CRT monitor would display. This is "
-      "required for all non 4:3 VGA resolutions to look as intended. When disabled, the core's "
-      "aspect ratio is set to match the current VGA resolution's width to height ratio, providing "
-      "integer scaling but resulting in a stretched or squashed image.",
+      "视频:长宽比校正",
+      "启用后, 核心的纵横比将设置为CRT监视器应有的比例。 所有非4：3 VGA分辨率都必须开启以符合预期。 禁用时, 将内核的宽高比设置为 与当前VGA分辨率的宽高比相匹配, 以提供整数缩放比例, 但会导致图像拉伸或挤压。",
       {
          { "true", NULL },
          { "false", NULL },
@@ -354,8 +345,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_scaler",
-      "Video: Scaler",
-      "Scaler used to scale or improve image quality.",
+      "视频: 缩放类型",
+      "用于缩放或改善图像质量。",
       {
          { "none", NULL },
          { "normal2x", NULL },
@@ -381,8 +372,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_joystick_timed",
-      "Input: Enable joystick timed intervals",
-      "Enable timed intervals for joystick axes. Experiment with this option if your joystick drifts.",
+      "输入:启用摇杆定时间隔",
+      "为操纵杆轴启用定时间隔。 如果操纵杆漂移, 请尝试使用此选项。",
       {
          { "false", NULL },
          { "true", NULL },
@@ -392,8 +383,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_emulated_mouse",
-      "Input: Enable gamepad emulated mouse",
-      "Enable mouse emulation via the right stick on your gamepad.",
+      "输入: 启用游戏手柄模拟鼠标",
+      "用手柄右摇杆模拟鼠标。",
       {
          { "false", NULL },
          { "true", NULL },
@@ -403,8 +394,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_emulated_mouse_deadzone",
-      "Input: Gamepad emulated mouse deadzone",
-      "Deadzone of the gamepad emulated mouse. Experiment with this value if the mouse cursor drifts.",
+      "输入: 游戏手柄模拟鼠标死区",
+      "游戏手柄模拟鼠标的死区调整。 如果鼠标光标漂移, 请尝试调整此值。",
       {
          { "0%", NULL },
          { "5%", NULL },
@@ -419,22 +410,22 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_mouse_speed_factor_x",
-      "Input: Horizontal mouse sensitivity.",
-      "Experiment with this value if the mouse is too fast when moving left/right.",
+      "输入:水平鼠标灵敏度",
+      "如果鼠标左右移动过快, 请尝试调整此值。",
       MOUSE_SPEED_FACTORS,
       "1.00"
    },
    {
       "dosbox_svn_mouse_speed_factor_y",
-      "Input: Vertical mouse sensitivity.",
-      "Experiment with this value if the mouse is too fast when moving up/down.",
+      "输入:垂直鼠标灵敏度",
+      "如果鼠标上下移动过快, 请尝试调整此值。",
       MOUSE_SPEED_FACTORS,
       "1.00"
    },
    {
       "dosbox_svn_sblaster_type",
-      "Sound: SoundBlaster type",
-      "Type of emulated SoundBlaster card.",
+      "声音:SoundBlaster类型",
+      "模拟的SoundBlaster卡的类型。",
       {
          { "sb1", "SoundBlaster 1.0" },
          { "sb2", "SoundBlaster 2.0" },
@@ -449,8 +440,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_sblaster_base",
-      "Sound: SoundBlaster Base Address",
-      "The I/O address for the emulated SoundBlaster card.",
+      "声音:SoundBlaster基址",
+      "模拟的SoundBlaster卡的I/O地址。",
       {
          { "220", NULL },
          { "240", NULL },
@@ -466,8 +457,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_sblaster_irq",
-      "Sound: SoundBlaster IRQ Number",
-      "The IRQ number for the emulated SoundBlaster card.",
+      "声音:SoundBlaster IRQ号",
+      "模拟的SoundBlaster卡的IRQ号。",
       {
          { "3", NULL },
          { "5", NULL },
@@ -482,8 +473,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_sblaster_dma",
-      "Sound: SoundBlaster DMA Number",
-      "The DMA number for the emulated SoundBlaster card.",
+      "声音:SoundBlaster DMA编号",
+      "模拟的SoundBlaster卡的DMA编号。",
       {
          { "1", NULL },
          { "3", NULL },
@@ -497,8 +488,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_sblaster_hdma",
-      "Sound: SoundBlaster High DMA Number",
-      "The High DMA number for the emulated SoundBlaster card.",
+      "声音:SoundBlaster高DMA编号",
+      "模拟的SoundBlaster卡的DMA高编号。",
       {
          { "1", NULL },
          { "3", NULL },
@@ -512,8 +503,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_sblaster_opl_mode",
-      "Sound: SoundBlaster OPL mode",
-      "The SoundBlaster emulated OPL mode. All modes are Adlib compatible except cms.",
+      "声音:SoundBlaster OPL模式",
+      "SoundBlaster模拟OPL模式。 除cms之外, 所有模式均兼容Adlib。",
       {
          { "auto", "auto (select based on the SoundBlaster type)" },
          { "cms", "CMS (Creative Music System / GameBlaster)" },
@@ -528,8 +519,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_sblaster_opl_emu",
-      "Sound: SoundBlaster OPL provider",
-      "Provider for the OPL emulation. Compat might provide the best quality.",
+      "声音：SoundBlaster OPL提供程序",
+      "OPL仿真的提供程序。 'Compat'可提供最佳质量。",
       {
          { "default", NULL },
          { "compat", NULL },
@@ -541,9 +532,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_gus",
-      "Sound: Gravis Ultrasound support",
-      "Enables Gravis Ultrasound emulation. Thee ULTRADIR directory is not configurable. It is "
-      "always set to C:\\ULTRASND and is not configurable via options.",
+      "声音:Gravis Ultrasound支持",
+      "启用Gravis Ultrasound仿真。 ULTRADIR目录不可配置。 它始终设置为C:\\ULTRASND, 且无法通过选项进行配置。",
       {
          { "false", NULL },
          { "true", NULL },
@@ -553,8 +543,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_gusrate",
-      "Sound: Ultrasound sample rate",
-      "Gravis Ultrasound emulation sample rate.",
+      "声音:Ultrasound采样率",
+      "Gravis Ultrasound模拟的采样率。",
       {
          { "8000", NULL },
          { "11025", NULL },
@@ -570,8 +560,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_gusbase",
-      "Sound: Ultrasound IO address",
-      "The IO base address for the emulated Gravis Ultrasound card.",
+      "声音:Ultrasound IO地址",
+      "模拟的Gravis Ultrasound卡的IO基址。",
       {
          { "220", NULL },
          { "240", NULL },
@@ -587,8 +577,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_gusirq",
-      "Sound: Ultrasound IRQ",
-      "The IRQ number for the emulated Gravis Ultrasound card.",
+      "声音:Ultrasound IRQ",
+      "模拟的Gravis Ultrasound卡的IRQ号。",
       {
          { "3", NULL },
          { "5", NULL },
@@ -603,8 +593,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_gusdma",
-      "Sound: Ultrasound DMA",
-      "The DMA channel for the emulated Gravis Ultrasound card.",
+      "声音:Ultrasound DMA",
+      "仿真的Gravis Ultrasound的DMA通道。",
       {
          { "0", NULL },
          { "1", NULL },
@@ -618,8 +608,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_midi",
-      "Sound: Enable libretro MIDI passthrough",
-      "Enable libretro MIDI passthrough.",
+      "声音:启用libretro MIDI直通",
+      "启用libretro MIDI直通。",
       {
          { "false", NULL },
          { "true", NULL },
@@ -629,8 +619,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_pcspeaker",
-      "Sound: Enable PC speaker",
-      "Enable PC speaker emulation.",
+      "声音:启用PC扬声器",
+      "启用PC扬声器模拟。",
       {
          { "false", NULL },
          { "true", NULL },
@@ -640,8 +630,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_tandy",
-      "Sound: Enable Tandy Sound System",
-      "Enable Tandy Sound System Emulation. Auto only works if machine is set to tandy.",
+      "声音:启用Tandy声音系统",
+      "启用Tandy声音系统仿真。 Auto仅在机器设置为Tandy时有效。",
       {
          { "auto", NULL },
          { "on", "true" },
@@ -652,8 +642,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_disney",
-      "Sound: Enable Disney Sound Source",
-      "Enable Disney Sound Source Emulation.",
+      "声音：启用Disney音源",
+      "启用Disney音源模拟。",
       {
          { "off", "false" },
          { "on", "true" },
@@ -663,8 +653,8 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "dosbox_svn_ipx",
-      "Network: Enable IPX",
-      "Enable IPX over UDP tunneling.",
+      "网络:启用IPX",
+      "启用UDP管道上的IPX。",
       {
          { "false", NULL },
          { "true", NULL },
